@@ -1,0 +1,8 @@
+<h1 class="title">Hapi-Js Kpi Tracker</h1>
+<p>Welcome to the <b>Kpi Tracker</b> project</p>
+{{#if isAnonymous}}
+<p><a href="/login">Clickhere</a>to login or create an account</p>
+{{/if}}
+{{#if isAuthenticated}}
+<p><a href="/add">Add</a> a kpi measurement or <a href="/list"> new value</a></p>
+{{/if}}

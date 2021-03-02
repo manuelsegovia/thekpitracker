@@ -1,0 +1,15 @@
+const addMeasurements = {
+  method: 'GET',
+  path: '/add',
+  handler: (request, h) => h.view('add', { title: 'Add Measurement' }),
+};
+const listMeasurements = {
+  method: 'GET',
+  path: '/list',
+  handler: (request, h) =>
+    h.view('list', {
+      title: 'Measurements',
+    }),
+};
+
+module.exports = [addMeasurements, listMeasurements];
