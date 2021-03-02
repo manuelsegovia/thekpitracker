@@ -10,7 +10,7 @@ exports.plugin = {
     const location = isSecure
       ? 'https://thekpitracker.herokuapp.com'
       : server.info.uri;
-    const redirect = isSecure
+    const redirectTo = isSecure
       ? 'https://thekpitracker.herokuapp.com/authorization-code/callback'
       : '/authorization-code/callback';
     await server.register([Cookie, Bell]);
@@ -23,7 +23,7 @@ exports.plugin = {
         isSecure,
       },
       // redirectTo: '/authorization-code/callback',
-      redirect,
+      redirectTo,
     });
     // OKTA configuration
     server.auth.strategy('okta', 'bell', {
