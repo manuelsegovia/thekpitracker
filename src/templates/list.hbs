@@ -49,7 +49,7 @@
         // Min value is the lowest measurement down to the nearest multiple of 10
         return Math.floor(this.measurements.reduce((prev, current) => {
           return prev.workHours < current.workHours ? prev.workHours : current.workHours;
-        }, 0) / 10) * 10;
+        }, 0) / 10) * 1;
       }
     },
     data() {
