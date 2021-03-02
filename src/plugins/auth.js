@@ -7,6 +7,9 @@ exports.plugin = {
   name: 'auth',
   version: '1.0.0',
   register: async (server) => {
+    const location = isSecure
+      ? 'https://thekpitracker.herokuapp.com'
+      : server.info.uri;
     await server.register([Cookie, Bell]);
 
     server.auth.strategy('session', 'cookie', {
@@ -24,7 +27,7 @@ exports.plugin = {
       config: { uri: process.env.OKTA_ORG_URL },
       password: process.env.COOKIE_PWD,
       isSecure,
-      location: process.env.HOST_URL,
+      location,
       clientId: process.env.OKTA_CLIENT_ID,
       clientSecret: process.env.OKTA_CLIENT_SECRET,
     });
