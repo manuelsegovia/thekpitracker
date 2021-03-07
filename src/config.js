@@ -29,7 +29,7 @@ assert(OKTA_CLIENT_SECRET, 'OKTA_CLIENT_SECRET is required');
 module.exports = {
   nodeEnv: NODE_ENV,
   port: PORT,
-  host: HOST,
+  host: HOST || '0.0.0.0',
   hostUrl: HOST_URL,
 
   cookiePwd: COOKIE_PWD,
