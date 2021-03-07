@@ -1,9 +1,16 @@
-const dotEnv = require('dotenv');
-const { createSever } = require('./app');
+const config = require('./config');
+const { createServer } = require('./app');
 
+// const config = {
+//   port: PORT,
+//   host: '0.0.0.0',
+//   routes: {
+//     cors: true,
+//   },
+// };
 const init = async () => {
-  dotEnv.config();
-  const server = await createSever();
+  const server = await createServer(config);
+
   await server.start();
   console.log('Server running on %s', server.info.uri);
 };

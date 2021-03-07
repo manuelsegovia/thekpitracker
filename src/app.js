@@ -1,20 +1,22 @@
 const Hapi = require('@hapi/hapi');
+
 const plugins = require('./plugins');
 
-const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
-const createSever = async () => {
+const createServer = async (config) => {
+  const { host, port } = config;
   const server = Hapi.server({
-    port: process.env.PORT,
     host,
+    port,
     routes: {
       cors: true,
     },
   });
+  server.app.config = config;
   await plugins.register(server);
   server.route(require('./routes'));
   return server;
 };
 
 module.exports = {
-  createSever,
+  createServer,
 };

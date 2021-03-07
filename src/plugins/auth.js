@@ -1,12 +1,12 @@
 const Bell = require('@hapi/bell');
 const Cookie = require('@hapi/cookie');
 
-const isSecure = process.env.NODE_ENV === 'production';
-
 exports.plugin = {
   name: 'auth',
   version: '1.0.0',
   register: async (server) => {
+    const { config } = server.app;
+    const isSecure = config.nodeEnv === 'production';
     const location = isSecure
       ? 'https://thekpitracker.herokuapp.com'
       : server.info.uri;
@@ -19,7 +19,7 @@ exports.plugin = {
       cookie: {
         name: 'sid-okta',
         path: '/',
-        password: process.env.COOKIE_PWD,
+        password: config.cookiePwd,
         isSecure,
       },
       // redirectTo: '/authorization-code/callback',
@@ -28,12 +28,12 @@ exports.plugin = {
     // OKTA configuration
     server.auth.strategy('okta', 'bell', {
       provider: 'okta',
-      config: { uri: process.env.OKTA_ORG_URL },
-      password: process.env.COOKIE_PWD,
+      config: { uri: config.oktaOrgUrl },
+      password: config.cookiePwd,
       isSecure,
       location,
-      clientId: process.env.OKTA_CLIENT_ID,
-      clientSecret: process.env.OKTA_CLIENT_SECRET,
+      clientId: config.oktaClientId,
+      clientSecret: config.oktaClientSecret,
     });
     server.auth.default('session');
   },

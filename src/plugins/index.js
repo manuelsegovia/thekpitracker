@@ -19,6 +19,7 @@ module.exports = {
       isCached: false,
 
       context: (request) => {
+        // console.log('IN CONTEXT', request.auth);
         const { isAuthenticated, isAnonymous } = request.auth;
 
         if (isAuthenticated) {

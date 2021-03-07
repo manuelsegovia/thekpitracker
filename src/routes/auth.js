@@ -4,10 +4,11 @@ const login = {
   method: 'GET',
   path: '/login',
   options: {
-    handler: async (request) => {
+    handler: async (request, h) => {
       if (!request.auth.isAuthenticated) {
         return `Authentication failed due to: ${request.auth.error.message}`;
       }
+      return h.redirect('/');
     },
   },
 };

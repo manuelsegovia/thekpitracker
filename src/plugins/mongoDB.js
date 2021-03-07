@@ -7,7 +7,7 @@ exports.plugin = {
     await server.register({
       plugin: require('hapi-mongodb'),
       options: {
-        url: process.env.MONGO_DB,
+        url: server.app.config.mongoDb,
         settings: {
           useUnifiedTopology: true,
           useNewUrlParser: true,
