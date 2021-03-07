@@ -19,8 +19,8 @@ const {
 } = process.env;
 assert.ok(NODE_ENV, 'NODE_ENV is required');
 assert(PORT, 'PORT is required');
-assert(HOST, 'HOST is required');
-// assert(HOST_URL, 'HOST_URL is required');
+// assert(HOST, 'HOST is required');
+assert(HOST_URL, 'HOST_URL is required');
 assert(COOKIE_PWD, 'COOKIE_PWD is required');
 assert(OKTA_ORG_URL, 'OKTA_ORG_URL is required');
 assert(OKTA_CLIENT_ID, 'OKTA_CLIENT_ID is required');
