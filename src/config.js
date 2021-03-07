@@ -20,7 +20,7 @@ const {
 assert.ok(NODE_ENV, 'NODE_ENV is required');
 assert(PORT, 'PORT is required');
 assert(HOST, 'HOST is required');
-assert(HOST_URL, 'HOST_URL is required');
+// assert(HOST_URL, 'HOST_URL is required');
 assert(COOKIE_PWD, 'COOKIE_PWD is required');
 assert(OKTA_ORG_URL, 'OKTA_ORG_URL is required');
 assert(OKTA_CLIENT_ID, 'OKTA_CLIENT_ID is required');
@@ -29,7 +29,7 @@ assert(OKTA_CLIENT_SECRET, 'OKTA_CLIENT_SECRET is required');
 module.exports = {
   nodeEnv: NODE_ENV,
   port: PORT,
-  host: HOST || '0.0.0.0',
+  host: HOST,
   hostUrl: HOST_URL,
 
   cookiePwd: COOKIE_PWD,
