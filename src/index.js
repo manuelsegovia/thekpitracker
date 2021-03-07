@@ -1,13 +1,6 @@
 const config = require('./config');
 const { createServer } = require('./app');
 
-// const config = {
-//   port: PORT,
-//   host: '0.0.0.0',
-//   routes: {
-//     cors: true,
-//   },
-// };
 const init = async () => {
   const server = await createServer(config);
 
